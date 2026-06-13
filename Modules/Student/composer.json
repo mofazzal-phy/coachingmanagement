@@ -1,0 +1,28 @@
+{
+    "name": "coaching/student",
+    "description": "",
+    "authors": [
+        {
+            "name": "User",
+            "email": "user@example.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Student\\": "app/",
+            "Modules\\Student\\Database\\Factories\\": "database/factories/",
+            "Modules\\Student\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Student\\Tests\\": "tests/"
+        }
+    }
+}

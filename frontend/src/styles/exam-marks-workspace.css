@@ -1,0 +1,593 @@
+@import './exam-results-workflow.css';
+
+/* Ultra-modern professional exam results workspace (admin + teacher) */
+.exam-marks-workspace {
+  --ems-bg: var(--bg-page);
+  --ems-surface: var(--bg-card);
+  --ems-surface-2: var(--bg-surface-muted);
+  --ems-border: var(--border-color);
+  --ems-border-strong: var(--border-strong);
+  --ems-text: var(--text-primary);
+  --ems-muted: var(--text-muted);
+  --ems-primary: #2563eb;
+  --ems-primary-dark: #1d4ed8;
+  --ems-primary-glow: rgba(37, 99, 235, 0.22);
+  --ems-accent: #0ea5e9;
+  --ems-radius: 16px;
+  --ems-radius-sm: 10px;
+  --ems-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
+  --ems-shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.08);
+  font-family: inherit;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 0.5rem 2.5rem;
+  background: var(--ems-bg);
+  min-height: 100%;
+}
+
+.exam-marks-workspace .ems-channel-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  background: var(--ems-surface);
+  border: 1px solid var(--ems-border);
+  border-radius: var(--ems-radius-sm);
+}
+.exam-marks-workspace .ems-channel-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ems-muted);
+}
+.exam-marks-workspace .ems-channel-opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--ems-border-strong);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--ems-surface-2);
+}
+.exam-marks-workspace .ems-channel-opt.active {
+  background: #eef2ff;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+.exam-marks-workspace .ems-channel-hint {
+  flex: 1 1 220px;
+  font-size: 0.78rem;
+  color: var(--ems-muted);
+  min-width: 200px;
+}
+
+/* —— Page shell —— */
+.exam-marks-workspace .ems-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding: 1.75rem 1.85rem;
+  background: var(--ems-surface);
+  border: 1px solid var(--ems-border);
+  border-radius: calc(var(--ems-radius) + 4px);
+  box-shadow: var(--ems-shadow-lg);
+  overflow: hidden;
+}
+
+.exam-marks-workspace .ems-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--ems-primary), var(--ems-accent));
+  border-radius: 4px 0 0 4px;
+}
+
+.exam-marks-workspace .ems-hero::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -8%;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, var(--ems-primary-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.exam-marks-workspace .ems-hero-text {
+  position: relative;
+  z-index: 1;
+  padding-left: 0.35rem;
+}
+
+.exam-marks-workspace .ems-hero-text h1 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 800;
+  color: var(--ems-text);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.exam-marks-workspace .ems-hero-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ems-muted);
+  max-width: 42rem;
+  line-height: 1.55;
+}
+
+.exam-marks-workspace .ems-hero-badge {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ems-primary-dark);
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 2px 8px var(--ems-primary-glow);
+}
+
+/* —— Tabs —— */
+.exam-marks-workspace .ems-tabs {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+  padding: 0.3rem;
+  background: var(--ems-surface);
+  border: 1px solid var(--ems-border);
+  border-radius: 12px;
+  box-shadow: var(--ems-shadow);
+  flex-wrap: wrap;
+}
+
+.exam-marks-workspace .ems-tab {
+  padding: 0.6rem 1.15rem;
+  border: none;
+  background: transparent;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.84rem;
+  color: var(--ems-muted);
+  transition: color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+
+.exam-marks-workspace .ems-tab:hover {
+  color: var(--ems-text);
+  background: var(--ems-surface-2);
+}
+
+.exam-marks-workspace .ems-tab.active {
+  color: #fff;
+  background: linear-gradient(135deg, var(--ems-primary), var(--ems-primary-dark));
+  box-shadow: 0 4px 14px var(--ems-primary-glow);
+}
+
+/* —— Panels —— */
+.exam-marks-workspace .ems-panel {
+  background: var(--ems-surface);
+  border: 1px solid var(--ems-border);
+  border-radius: var(--ems-radius);
+  box-shadow: var(--ems-shadow);
+  overflow: hidden;
+}
+
+.exam-marks-workspace .ems-workflow-wrap {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  min-height: 480px;
+}
+
+.exam-marks-workspace .ems-workflow-wrap > .results-workflow {
+  padding: 0;
+}
+
+.exam-marks-workspace .ems-info-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.85rem 1.35rem;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #1e40af;
+  background: linear-gradient(90deg, rgba(239, 246, 255, 0.95), rgba(248, 250, 252, 0.9));
+  border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+/* —— Forms —— */
+.exam-marks-workspace .ems-filters {
+  padding: 1.35rem 1.5rem 1.5rem;
+}
+
+.exam-marks-workspace .ems-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 1rem 1.1rem;
+  align-items: end;
+}
+
+.exam-marks-workspace .ems-form-group label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.exam-marks-workspace .ems-form-group .required {
+  color: #ef4444;
+}
+
+.exam-marks-workspace .ems-control {
+  width: 100%;
+  padding: 0.62rem 0.8rem;
+  border: 1px solid var(--ems-border-strong);
+  border-radius: var(--ems-radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ems-text);
+  background: var(--ems-surface);
+  box-sizing: border-box;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.exam-marks-workspace .ems-control:focus {
+  outline: none;
+  border-color: var(--ems-primary);
+  box-shadow: 0 0 0 3px var(--ems-primary-glow);
+}
+
+.exam-marks-workspace .ems-control:disabled {
+  background: var(--ems-surface-2);
+  color: var(--text-muted);
+}
+
+.exam-marks-workspace .ems-routine-meta {
+  margin: 1.1rem 0 0;
+  padding: 0.75rem 1rem;
+  border-radius: var(--ems-radius-sm);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.exam-marks-workspace .ems-routine-meta--ok {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.exam-marks-workspace .ems-routine-meta--err {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+.exam-marks-workspace .ems-chip {
+  display: inline-block;
+  margin: 0.2rem 0.4rem 0.2rem 0;
+  padding: 0.22rem 0.55rem;
+  background: var(--bg-card);
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+/* —— Mark panel —— */
+.exam-marks-workspace .ems-mark-panel {
+  margin-top: 1.35rem;
+  background: var(--ems-surface);
+  border: 1px solid var(--ems-border);
+  border-radius: var(--ems-radius);
+  box-shadow: var(--ems-shadow-lg);
+  overflow: hidden;
+}
+
+.exam-marks-workspace .ems-mark-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(180deg, #fafbff 0%, #fff 100%);
+  border-bottom: 1px solid var(--ems-border);
+}
+
+.exam-marks-workspace .ems-mark-head h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ems-text);
+}
+
+.exam-marks-workspace .ems-mark-head p {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--ems-muted);
+  max-width: 36rem;
+  line-height: 1.5;
+}
+
+.exam-marks-workspace .ems-mark-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.exam-marks-workspace .ems-mark-body {
+  padding: 1.15rem 1.5rem 1.5rem;
+}
+
+.exam-marks-workspace .ems-alert {
+  margin: 0 1.5rem 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--ems-radius-sm);
+  font-size: 0.84rem;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+}
+
+.exam-marks-workspace .ems-table-shell {
+  border-radius: 12px;
+  border: 1px solid var(--ems-border);
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.exam-marks-workspace .ems-table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.85rem 1.1rem;
+  background: var(--ems-surface-2);
+  border-bottom: 1px solid var(--ems-border);
+}
+
+.exam-marks-workspace .ems-badge-count {
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  color: var(--ems-primary-dark);
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.exam-marks-workspace .ems-muted-hint {
+  font-size: 0.78rem;
+  color: var(--ems-muted);
+  font-weight: 600;
+}
+
+/* —— Buttons —— */
+.exam-marks-workspace .ems-btn {
+  padding: 0.58rem 1.05rem;
+  border-radius: var(--ems-radius-sm);
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: transform 0.12s, box-shadow 0.15s, background 0.15s;
+}
+
+.exam-marks-workspace .ems-btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--ems-primary), var(--ems-primary-dark));
+  box-shadow: 0 4px 14px var(--ems-primary-glow);
+}
+
+.exam-marks-workspace .ems-btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--ems-primary-glow);
+}
+
+.exam-marks-workspace .ems-btn-outline {
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--ems-border-strong);
+}
+
+.exam-marks-workspace .ems-btn-outline:hover:not(:disabled) {
+  background: var(--ems-surface-2);
+  border-color: var(--text-muted);
+}
+
+.exam-marks-workspace .ems-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.exam-marks-workspace .ems-loading,
+.exam-marks-workspace .ems-empty {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--ems-muted);
+}
+
+.exam-marks-workspace .ems-empty h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  color: var(--ems-text);
+}
+
+.exam-marks-workspace .ems-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e2e8f0;
+  border-top-color: var(--ems-primary);
+  border-radius: 50%;
+  animation: ems-spin 0.75s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes ems-spin {
+  to { transform: rotate(360deg); }
+}
+
+.exam-marks-workspace .ems-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  z-index: 2000;
+  box-shadow: var(--ems-shadow-lg);
+  backdrop-filter: blur(8px);
+}
+
+.exam-marks-workspace .ems-toast.success {
+  background: #059669;
+  color: #fff;
+}
+
+.exam-marks-workspace .ems-toast.error {
+  background: #dc2626;
+  color: #fff;
+}
+
+/* —— Publish tab (admin) —— */
+.exam-marks-workspace .ems-publish-body {
+  padding: 1.35rem 1.5rem 1.5rem;
+}
+
+.exam-marks-workspace .ems-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.exam-marks-workspace .ems-stat {
+  text-align: center;
+  padding: 1rem 0.75rem;
+  border-radius: 12px;
+  background: var(--ems-surface-2);
+  border: 1px solid var(--ems-border);
+}
+
+.exam-marks-workspace .ems-stat-num {
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: var(--ems-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.exam-marks-workspace .ems-stat-lbl {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ems-muted);
+  margin-top: 0.25rem;
+}
+
+.exam-marks-workspace .ems-stat.pending { border-color: #fde68a; background: #fffbeb; }
+.exam-marks-workspace .ems-stat.published { border-color: #86efac; background: #f0fdf4; }
+.exam-marks-workspace .ems-stat.absent { border-color: #fecaca; background: #fef2f2; }
+.exam-marks-workspace .ems-stat.eval { border-color: #bfdbfe; background: #eff6ff; }
+
+.exam-marks-workspace .ems-status-pill {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.exam-marks-workspace .ems-status-pill.draft { background: var(--bg-accent); color: var(--text-muted); }
+.exam-marks-workspace .ems-status-pill.processing { background: #fef3c7; color: #b45309; }
+.exam-marks-workspace .ems-status-pill.published { background: #d1fae5; color: #047857; }
+
+.exam-marks-workspace .ems-warnings {
+  margin: 0.75rem 0;
+  padding-left: 1.2rem;
+  color: #b45309;
+  font-size: 0.84rem;
+}
+
+.exam-marks-workspace .ems-publish-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.exam-marks-workspace .ems-check {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.exam-marks-workspace .ems-export-block {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ems-border);
+}
+
+.exam-marks-workspace .ems-export-block h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.exam-marks-workspace .ems-export-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+/* Mark entry grid inside workspace */
+.exam-marks-workspace .mark-entry-grid .grid-table-wrap {
+  border: none;
+  border-radius: 0;
+}
+
+.exam-marks-workspace .mark-entry-grid .data-table th {
+  background: linear-gradient(180deg, #f8fafc, #f1f5f9);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+}
+
+.exam-marks-workspace .mark-entry-grid .data-table tbody tr:hover td {
+  background: var(--bg-surface-muted);
+}

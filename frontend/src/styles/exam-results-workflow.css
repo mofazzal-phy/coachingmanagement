@@ -1,0 +1,303 @@
+/* Modern workflow inside exam-marks-workspace */
+.exam-marks-workspace .results-workflow {
+  display: grid;
+  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  padding: 1.25rem;
+  width: 100%;
+}
+
+.exam-marks-workspace .exam-rail {
+  background: var(--ems-surface-2, #f8fafc);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 14px;
+  padding: 1rem;
+  max-height: calc(100vh - 12rem);
+  overflow-y: auto;
+  position: sticky;
+  top: 0.75rem;
+}
+
+.exam-marks-workspace .rail-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.exam-marks-workspace .rail-head h3 {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.exam-marks-workspace .exam-radio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.exam-marks-workspace .exam-radio-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.exam-marks-workspace .exam-radio-item:hover {
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: var(--shadow-sm);
+}
+
+.exam-marks-workspace .exam-radio-item.active {
+  background: var(--bg-card);
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.exam-marks-workspace .exam-radio-item input {
+  margin-top: 0.15rem;
+  accent-color: #2563eb;
+}
+
+.exam-marks-workspace .exam-radio-num {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  min-width: 1rem;
+}
+
+.exam-marks-workspace .exam-radio-name {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.exam-marks-workspace .workflow-main {
+  min-height: 420px;
+}
+
+.exam-marks-workspace .workflow-step {
+  min-height: 360px;
+}
+
+.exam-marks-workspace .workflow-step.is-loading .status-card.card-busy {
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.exam-marks-workspace .wf-loading-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  background: var(--bg-surface-muted);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 8px;
+}
+
+.exam-marks-workspace .step-head {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.15rem;
+}
+
+.exam-marks-workspace .step-head h3 {
+  margin: 0;
+  flex: 1;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.exam-marks-workspace .summary-hint {
+  margin: 0 0 1.15rem;
+  padding: 0.7rem 1rem;
+  background: var(--bg-surface-muted);
+  border: 1px dashed rgba(100, 116, 139, 0.35);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.exam-marks-workspace .status-section-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.exam-marks-workspace .status-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+  gap: 0.65rem;
+}
+
+.exam-marks-workspace .status-card {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 14px;
+  padding: 1.1rem 0.85rem;
+  text-align: center;
+  cursor: pointer;
+  background: var(--bg-card);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.15s;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.exam-marks-workspace .status-card:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+}
+
+.exam-marks-workspace .status-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.exam-marks-workspace .wf-status-count {
+  display: block;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+.exam-marks-workspace .wf-status-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  margin-top: 0.4rem;
+}
+
+.exam-marks-workspace .wf-status-unit {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+  opacity: 0.85;
+}
+
+.exam-marks-workspace .st-pending { background: linear-gradient(160deg, #fffbeb, #fff); border-color: #fcd34d; }
+.exam-marks-workspace .st-pending .wf-status-count { color: #b45309; }
+.exam-marks-workspace .st-published { background: linear-gradient(160deg, #ecfdf5, #fff); border-color: #6ee7b7; }
+.exam-marks-workspace .st-published .wf-status-count { color: #047857; }
+.exam-marks-workspace .st-absent { background: linear-gradient(160deg, #fef2f2, #fff); border-color: #fca5a5; }
+.exam-marks-workspace .st-absent .wf-status-count { color: #b91c1c; }
+.exam-marks-workspace .st-eval { background: linear-gradient(160deg, #f8fafc, #fff); border-color: #cbd5e1; }
+.exam-marks-workspace .st-eval .wf-status-count { color: var(--text-secondary); }
+.exam-marks-workspace .st-partial { background: linear-gradient(160deg, #faf5ff, #fff); border-color: #c4b5fd; }
+.exam-marks-workspace .st-partial .wf-status-count { color: #6d28d9; }
+.exam-marks-workspace .st-complete { background: linear-gradient(160deg, #eff6ff, #fff); border-color: #93c5fd; }
+.exam-marks-workspace .st-complete .wf-status-count { color: #1d4ed8; }
+.exam-marks-workspace .st-all { background: linear-gradient(160deg, #eef2ff, #fff); border-color: #a5b4fc; }
+.exam-marks-workspace .st-all .wf-status-count { color: #4338ca; }
+.exam-marks-workspace .st-marks-entry {
+  background: linear-gradient(160deg, #eff6ff, #fff);
+  border-color: #60a5fa;
+}
+.exam-marks-workspace .st-marks-entry .wf-status-count { color: #1d4ed8; }
+
+.exam-marks-workspace .marks-routine-grid,
+.exam-marks-workspace .subject-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(188px, 1fr));
+  gap: 0.65rem;
+}
+
+.exam-marks-workspace .marks-routine-card,
+.exam-marks-workspace .subject-card {
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.12s;
+}
+
+.exam-marks-workspace .marks-routine-card:hover:not(:disabled),
+.exam-marks-workspace .subject-card:hover {
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+.exam-marks-workspace .table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: var(--bg-card);
+}
+
+.exam-marks-workspace .results-workflow .btn {
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+}
+.exam-marks-workspace .results-workflow .btn-outline {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: var(--bg-card);
+}
+.exam-marks-workspace .results-workflow .btn-outline:hover {
+  background: var(--bg-surface-muted);
+  border-color: var(--text-muted);
+}
+.exam-marks-workspace .results-workflow .btn-sm {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.8rem;
+}
+.exam-marks-workspace .results-workflow .btn-xs {
+  padding: 0.28rem 0.5rem;
+  font-size: 0.72rem;
+}
+
+.exam-marks-workspace .publish-all-bar {
+  margin-top: 1.25rem;
+  padding: 1rem 1.15rem;
+  background: linear-gradient(135deg, #eff6ff, #f8fafc);
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 960px) {
+  .exam-marks-workspace .results-workflow {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  .exam-marks-workspace .exam-rail {
+    max-height: none;
+    position: static;
+  }
+}

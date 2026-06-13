@@ -1,0 +1,283 @@
+// Project-wide dark mode safety net — catches any remaining hardcoded light styles.
+
+[data-theme="dark"] {
+  // App shell
+  body,
+  #app {
+    background: var(--bg-page);
+    color: var(--text-dark);
+  }
+
+  // PrimeVue — comprehensive component theming
+  .p-component,
+  .p-inputtext,
+  .p-dropdown,
+  .p-multiselect,
+  .p-calendar,
+  .p-autocomplete-input,
+  .p-textarea,
+  .p-inputnumber-input,
+  .p-password-input,
+  .p-listbox,
+  .p-selectbutton .p-button,
+  .p-togglebutton,
+  .p-chips-multiple-container,
+  .p-fileupload-content,
+  .p-fileupload-row,
+  .p-treetable,
+  .p-tree,
+  .p-organizationchart,
+  .p-timeline-event-content,
+  .p-accordion-content,
+  .p-fieldset-content,
+  .p-panel-content,
+  .p-tabview-panels,
+  .p-menubar,
+  .p-breadcrumb,
+  .p-steps,
+  .p-orderlist,
+  .p-picklist,
+  .p-dataview,
+  .p-carousel,
+  .p-galleria,
+  .p-inplace-display,
+  .p-terminal,
+  .p-blockui,
+  .p-scrollpanel-content {
+    color: var(--text-dark);
+  }
+
+  .p-datatable,
+  .p-datatable .p-datatable-header,
+  .p-datatable .p-datatable-footer,
+  .p-datatable .p-datatable-tbody > tr,
+  .p-datatable .p-datatable-tbody > tr > td,
+  .p-datatable .p-datatable-thead > tr > th,
+  .p-datatable .p-paginator,
+  .p-treetable .p-treetable-tbody > tr > td,
+  .p-treetable .p-treetable-thead > tr > th,
+  .p-card,
+  .p-card .p-card-body,
+  .p-card .p-card-content,
+  .p-card .p-card-title,
+  .p-card .p-card-subtitle,
+  .p-panel,
+  .p-panel .p-panel-header,
+  .p-panel .p-panel-content,
+  .p-panel .p-panel-footer,
+  .p-dialog,
+  .p-dialog .p-dialog-header,
+  .p-dialog .p-dialog-content,
+  .p-dialog .p-dialog-footer,
+  .p-sidebar,
+  .p-sidebar .p-sidebar-content,
+  .p-sidebar .p-sidebar-header,
+  .p-overlaypanel,
+  .p-overlaypanel .p-overlaypanel-content,
+  .p-menu,
+  .p-menu .p-menuitem-link,
+  .p-tieredmenu,
+  .p-contextmenu,
+  .p-megamenu,
+  .p-menubar-root-list,
+  .p-dropdown-panel,
+  .p-multiselect-panel,
+  .p-autocomplete-panel,
+  .p-listbox-list,
+  .p-datepicker,
+  .p-datepicker-header,
+  .p-datepicker-calendar,
+  .p-toolbar,
+  .p-tabview .p-tabview-nav,
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link,
+  .p-accordion .p-accordion-header .p-accordion-header-link,
+  .p-fieldset-legend,
+  .p-message,
+  .p-inline-message,
+  .p-toast .p-toast-message,
+  .p-confirmdialog,
+  .p-confirmpopup,
+  .p-skeleton,
+  .p-chip,
+  .p-tag,
+  .p-badge,
+  .p-divider,
+  .p-splitter-panel,
+  .p-stepper .p-stepper-header,
+  .p-stepper .p-stepper-content,
+  .p-timeline-event-opposite,
+  .p-timeline-event-separator,
+  .p-orderlist-list,
+  .p-picklist-list,
+  .p-dataview-content,
+  .p-paginator {
+    background: var(--bg-card) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .p-datatable .p-datatable-thead > tr > th,
+  .p-treetable .p-treetable-thead > tr > th {
+    background: var(--bg-header-row) !important;
+    color: var(--text-muted) !important;
+  }
+
+  .p-datatable .p-datatable-tbody > tr:hover,
+  .p-treetable .p-treetable-tbody > tr:hover {
+    background: var(--bg-card-hover) !important;
+  }
+
+  .p-inputtext,
+  .p-dropdown,
+  .p-multiselect,
+  .p-calendar .p-inputtext,
+  .p-autocomplete .p-inputtext,
+  .p-inputnumber .p-inputtext,
+  .p-password .p-inputtext,
+  .p-textarea,
+  .p-listbox,
+  .p-chips .p-chips-multiple-container {
+    background: var(--bg-input) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item,
+  .p-multiselect-panel .p-multiselect-items .p-multiselect-item,
+  .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item,
+  .p-menu .p-menuitem-link,
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    color: var(--text-dark) !important;
+  }
+
+  .p-dropdown-panel .p-dropdown-items .p-dropdown-item:hover,
+  .p-multiselect-panel .p-multiselect-items .p-multiselect-item:hover,
+  .p-menu .p-menuitem-link:hover {
+    background: var(--bg-card-hover) !important;
+  }
+
+  .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    color: var(--text-primary) !important;
+    border-color: var(--primary-color) !important;
+  }
+
+  .p-button.p-button-outlined {
+    background: transparent !important;
+    color: var(--text-dark) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .p-button.p-button-text {
+    color: var(--text-dark) !important;
+  }
+
+  // Global typography inside content areas
+  .main-content,
+  .page-container,
+  .dashboard-page,
+  .attendance-page,
+  .enrollment-page,
+  .exam-page,
+  .finance-page,
+  .hr-page,
+  .settings-page,
+  .public-page {
+    color: var(--text-dark);
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-primary);
+    }
+
+    label,
+    .form-group label {
+      color: var(--text-label);
+    }
+
+    small,
+    .text-muted,
+    .muted,
+    .subtle {
+      color: var(--text-muted) !important;
+    }
+  }
+
+  // Exam workspace CSS variables
+  .exam-marks-workspace {
+    --ems-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.25);
+    --ems-shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.35);
+  }
+
+  .exam-routine-grid .routine-table th {
+    background: var(--bg-header-row) !important;
+    color: var(--text-muted) !important;
+  }
+
+  .exam-routine-grid .routine-table td {
+    background: var(--bg-card) !important;
+    color: var(--text-dark) !important;
+  }
+
+  // Status badge light backgrounds → dark variants
+  .status-badge.active,
+  .badge-active,
+  .badge-success {
+    background: #064e3b !important;
+    color: #6ee7b7 !important;
+  }
+
+  .status-badge.inactive,
+  .badge-inactive,
+  .badge-danger {
+    background: #450a0a !important;
+    color: #fca5a5 !important;
+  }
+
+  .badge-warning,
+  .status-badge.resigned {
+    background: #78350f !important;
+    color: #fcd34d !important;
+  }
+
+  .badge-type,
+  .badge-info {
+    background: #1e3a5f !important;
+    color: #93c5fd !important;
+  }
+
+  // Warning / pending / partial semantic surfaces
+  .row-pending,
+  .monthly-record-row.row-pending,
+  .mini-table .row-pending td,
+  .stat-pending .stat-icon,
+  .status-badge.pending,
+  .badge-warning,
+  .cc-event_based .cc-icon-wrap {
+    background: var(--bg-warning-subtle) !important;
+    color: #fcd34d !important;
+  }
+
+  .row-partial,
+  .monthly-record-row.row-partial,
+  .mini-table .row-partial td,
+  .mini-badge.partial {
+    background: var(--bg-warning-muted) !important;
+    color: #fcd34d !important;
+  }
+
+  // Scrollbar
+  ::-webkit-scrollbar-track {
+    background: var(--bg-page);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+  }
+}
+
+// Light mode explicit badge restoration (when vars used from migration)
+[data-theme="light"] {
+  .status-badge.active { background: #d4edda; color: #155724; }
+  .status-badge.inactive { background: #fde8e8; color: var(--danger-color); }
+  .status-badge.resigned { background: #fff3cd; color: #856404; }
+  .badge-type { background: #e8f0fe; color: #1967d2; }
+}

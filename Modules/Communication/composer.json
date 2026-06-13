@@ -1,0 +1,28 @@
+{
+    "name": "coaching/communication",
+    "description": "",
+    "authors": [
+        {
+            "name": "User",
+            "email": "user@example.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Communication\\": "app/",
+            "Modules\\Communication\\Database\\Factories\\": "database/factories/",
+            "Modules\\Communication\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Communication\\Tests\\": "tests/"
+        }
+    }
+}

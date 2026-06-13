@@ -1,0 +1,17 @@
+{
+    "Core": true,
+    "Auth": true,
+    "Student": true,
+    "Academic": true,
+    "Attendance": true,
+    "Exam": true,
+    "Finance": true,
+    "Communication": true,
+    "Cms": true,
+    "Hr": true,
+    "Report": true,
+    "Settings": true,
+    "Admission": true,
+    "Teacher": true,
+    "Enrollment": true
+}

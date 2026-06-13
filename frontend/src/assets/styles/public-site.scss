@@ -1,0 +1,286 @@
+// ============================================================
+// Public marketing site design system (Poralekha)
+// Dark + light aware tokens, scoped under .public-site
+// ============================================================
+
+.public-site {
+  // ---- Light tokens (default) — soft, colorful, low-glare ----
+  --pub-bg: #eef1fb;
+  --pub-bg-alt: #e7ecfb;
+  --pub-surface: #ffffff;
+  --pub-surface-2: #f2f5fd;
+  --pub-surface-glass: rgba(248, 250, 255, 0.78);
+  --pub-border: #e1e6f2;
+  --pub-border-strong: #cbd3e6;
+
+  --pub-text: #1a1f37;
+  --pub-text-soft: #4a5578;
+  --pub-text-muted: #6b7596;
+  --pub-text-invert: #ffffff;
+
+  --pub-accent: #5b54e6;       // indigo
+  --pub-accent-strong: #4338ca;
+  --pub-accent-soft: #eaecfe;
+  --pub-accent-2: #0ea882;     // emerald
+  --pub-accent-2-soft: #e2f8f0;
+  --pub-gold: #f0a020;
+  --pub-pink: #ec4899;
+  --pub-pink-soft: #fdeaf4;
+  --pub-cyan: #0891b2;
+  --pub-cyan-soft: #e0f5fb;
+
+  --pub-hero-grad: linear-gradient(135deg, #3b2db8 0%, #5b54e6 42%, #0ea5c4 100%);
+  --pub-hero-overlay: linear-gradient(180deg, rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0.68));
+  --pub-mesh: radial-gradient(900px circle at 12% 18%, rgba(91, 84, 230, 0.10), transparent 42%),
+              radial-gradient(760px circle at 88% 8%, rgba(14, 168, 130, 0.09), transparent 40%);
+
+  --pub-shadow-sm: 0 1px 2px rgba(40, 44, 110, 0.05), 0 2px 10px rgba(40, 44, 110, 0.05);
+  --pub-shadow-md: 0 8px 26px rgba(40, 44, 110, 0.09);
+  --pub-shadow-lg: 0 22px 50px rgba(40, 44, 110, 0.16);
+  --pub-shadow-accent: 0 16px 40px rgba(91, 84, 230, 0.26);
+
+  --pub-radius-sm: 10px;
+  --pub-radius: 16px;
+  --pub-radius-lg: 24px;
+  --pub-radius-pill: 999px;
+
+  --pub-maxw: 1200px;
+  --pub-header-h: 68px;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--pub-bg);
+  color: var(--pub-text);
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', 'Inter', 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+// ---- Dark tokens ----
+[data-theme="dark"] .public-site {
+  --pub-bg: #0b1120;
+  --pub-bg-alt: #0f1729;
+  --pub-surface: #151d2e;
+  --pub-surface-2: #1b2436;
+  --pub-surface-glass: rgba(21, 29, 46, 0.72);
+  --pub-border: #25304a;
+  --pub-border-strong: #334155;
+
+  --pub-text: #f1f5f9;
+  --pub-text-soft: #cbd5e1;
+  --pub-text-muted: #94a3b8;
+  --pub-text-invert: #f8fafc;
+
+  --pub-accent: #818cf8;
+  --pub-accent-strong: #6366f1;
+  --pub-accent-soft: #1e1b4b;
+  --pub-accent-2: #34d399;
+  --pub-accent-2-soft: #064e3b;
+  --pub-gold: #fbbf24;
+  --pub-pink: #f472b6;
+  --pub-pink-soft: #4a1d3d;
+  --pub-cyan: #22d3ee;
+  --pub-cyan-soft: #0c4a5e;
+
+  --pub-hero-grad: linear-gradient(135deg, #0b1120 0%, #1e1b4b 50%, #134e4a 100%);
+  --pub-hero-overlay: linear-gradient(180deg, rgba(2, 6, 23, 0.30), rgba(2, 6, 23, 0.82));
+  --pub-mesh: radial-gradient(900px circle at 12% 18%, rgba(129, 140, 248, 0.16), transparent 42%),
+              radial-gradient(760px circle at 88% 8%, rgba(52, 211, 153, 0.12), transparent 40%);
+
+  --pub-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --pub-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --pub-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.6);
+  --pub-shadow-accent: 0 16px 40px rgba(99, 102, 241, 0.35);
+}
+
+// ---- Shared building blocks ----
+.public-site {
+  .pub-container {
+    width: 100%;
+    max-width: var(--pub-maxw);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  .pub-section {
+    padding: clamp(2.5rem, 6vw, 5rem) 0;
+  }
+
+  .pub-section--alt {
+    background: var(--pub-bg-alt);
+  }
+
+  .pub-section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .pub-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pub-accent);
+    background: var(--pub-accent-soft);
+    padding: 0.32rem 0.8rem;
+    border-radius: var(--pub-radius-pill);
+  }
+
+  .pub-title {
+    font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    color: var(--pub-text);
+    margin: 0.5rem 0 0;
+  }
+
+  .pub-sub {
+    color: var(--pub-text-muted);
+    font-size: 1rem;
+    margin: 0.4rem 0 0;
+    max-width: 640px;
+  }
+
+  // Buttons
+  .pub-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--pub-radius-pill);
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+    white-space: nowrap;
+  }
+
+  .pub-btn--primary {
+    background: var(--pub-accent);
+    color: #fff;
+    box-shadow: var(--pub-shadow-accent);
+  }
+  .pub-btn--primary:hover { transform: translateY(-2px); background: var(--pub-accent-strong); }
+
+  .pub-btn--accent {
+    background: var(--pub-accent-2);
+    color: #04261b;
+  }
+  .pub-btn--accent:hover { transform: translateY(-2px); filter: brightness(1.05); }
+
+  .pub-btn--ghost {
+    background: transparent;
+    color: var(--pub-text);
+    border-color: var(--pub-border-strong);
+  }
+  .pub-btn--ghost:hover { border-color: var(--pub-accent); color: var(--pub-accent); transform: translateY(-2px); }
+
+  .pub-btn--light {
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(6px);
+  }
+  .pub-btn--light:hover { background: rgba(255, 255, 255, 0.28); transform: translateY(-2px); }
+
+  // Card
+  .pub-card {
+    background: var(--pub-surface);
+    border: 1px solid var(--pub-border);
+    border-radius: var(--pub-radius);
+    box-shadow: var(--pub-shadow-sm);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+  .pub-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--pub-shadow-lg);
+    border-color: color-mix(in srgb, var(--pub-accent) 40%, var(--pub-border));
+  }
+
+  .pub-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: var(--pub-radius-pill);
+    font-size: 0.74rem;
+    font-weight: 700;
+    background: var(--pub-accent-soft);
+    color: var(--pub-accent);
+  }
+  .pub-chip--green { background: var(--pub-accent-2-soft); color: var(--pub-accent-2); }
+  .pub-chip--gold { background: color-mix(in srgb, var(--pub-gold) 18%, var(--pub-surface)); color: var(--pub-gold); }
+
+  // State boxes
+  .pub-state {
+    text-align: center;
+    padding: 4rem 1.5rem;
+    color: var(--pub-text-muted);
+  }
+  .pub-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--pub-border);
+    border-top-color: var(--pub-accent);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    animation: pub-spin 0.8s linear infinite;
+  }
+}
+
+@keyframes pub-spin { to { transform: rotate(360deg); } }
+
+@keyframes pub-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.public-site .pub-reveal {
+  opacity: 0;
+}
+.public-site .pub-reveal.is-visible {
+  animation: pub-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+// Respect reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .public-site .pub-reveal,
+  .public-site .pub-reveal.is-visible {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+// ============================================================
+// Matte section backgrounds (topography removed per design refresh).
+// Just a clean, flat surface with an optional whisper-soft accent glow at
+// the top — "simple but gorgeous", no busy line patterns, no glare.
+// ============================================================
+.public-site .pub-pat {
+  position: relative;
+  background-color: var(--pub-bg);
+  background-image: radial-gradient(150% 120% at 50% -30%, var(--pat-tint, transparent), transparent 60%);
+  background-repeat: no-repeat;
+}
+
+// Context tints — kept very subtle so the matte surface stays dominant.
+.public-site .pat-register { --pat-tint: color-mix(in srgb, var(--pub-accent) 7%, transparent); }
+.public-site .pat-contact  { --pat-tint: color-mix(in srgb, var(--pub-cyan, #06b6d4) 7%, transparent); }
+.public-site .pat-login    { --pat-tint: color-mix(in srgb, #8b5cf6 7%, transparent); }
+.public-site .pat-science  { --pat-tint: color-mix(in srgb, #10b981 7%, transparent); }
+.public-site .pat-arts     { --pat-tint: color-mix(in srgb, #ec4899 7%, transparent); }
+.public-site .pat-commerce { --pat-tint: color-mix(in srgb, #f59e0b 7%, transparent); }
+.public-site .pat-course   { --pat-tint: color-mix(in srgb, var(--pub-accent) 6%, transparent); }

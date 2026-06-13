@@ -1,0 +1,28 @@
+{
+    "name": "coaching/enrollment",
+    "description": "",
+    "authors": [
+        {
+            "name": "User",
+            "email": "user@example.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Enrollment\\": "app/",
+            "Modules\\Enrollment\\Database\\Factories\\": "database/factories/",
+            "Modules\\Enrollment\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Enrollment\\Tests\\": "tests/"
+        }
+    }
+}

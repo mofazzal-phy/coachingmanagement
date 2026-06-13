@@ -1,0 +1,255 @@
+// Global theme overrides — dark mode uses higher specificity to override scoped Vue styles
+
+$portal-roots: '.student-dashboard', '.teacher-dashboard', '.guardian-dashboard',
+  '.employee-dashboard', '.guardian-page', '.employee-page', '.admin-dashboard';
+
+#{$portal-roots} {
+  .panel,
+  .metric-card,
+  .quick-card,
+  .state-card,
+  .notice-card,
+  .child-card {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .section-title,
+  .panel-header h3,
+  .page-header h1,
+  .metric-value,
+  .metric-label,
+  .quick-label,
+  .profile-row strong,
+  .leave-info strong,
+  .payroll-info strong,
+  .notice-item strong,
+  .notice-card h3,
+  .child-info strong,
+  .exam-info strong,
+  .duty-info strong,
+  .schedule-info strong,
+  .fee-row strong,
+  .att-row strong {
+    color: var(--text-primary);
+  }
+
+  .metric-sub,
+  .panel-empty,
+  .page-header p,
+  .profile-row span,
+  .leave-info span,
+  .payroll-info span,
+  .notice-date,
+  .child-info span,
+  .exam-info span,
+  .duty-info span,
+  .schedule-info span,
+  .fee-row span,
+  .att-row span,
+  .state-card {
+    color: var(--text-secondary);
+  }
+
+  .panel-link,
+  .metric-link,
+  .view-fees-btn {
+    color: var(--portal-panel-link);
+  }
+
+  .schedule-item,
+  .leave-item,
+  .payroll-item,
+  .duty-item,
+  .exam-item,
+  .notice-item,
+  .child-card {
+    background: var(--portal-item-bg);
+    border-color: var(--border-color);
+  }
+}
+
+[data-theme="dark"] {
+  .page-header h1,
+  .header-left h1 {
+    color: var(--text-primary);
+  }
+
+  .status-badge.active {
+    background: #064e3b;
+    color: #6ee7b7;
+  }
+
+  .status-badge.inactive {
+    background: #450a0a;
+    color: #fca5a5;
+  }
+
+  .badge-type {
+    background: #1e3a5f;
+    color: #93c5fd;
+  }
+
+  #{$portal-roots} {
+    .panel,
+    .metric-card,
+    .quick-card,
+    .state-card,
+    .notice-card,
+    .child-card,
+    .schedule-item,
+    .leave-item,
+    .payroll-item,
+    .duty-item,
+    .exam-item,
+    .notice-item {
+      background: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+      box-shadow: var(--shadow-sm) !important;
+    }
+
+    .section-title,
+    .panel-header h3,
+    .page-header h1,
+    .metric-value,
+    .metric-label,
+    .quick-label,
+    .profile-row strong,
+    .leave-info strong,
+    .payroll-info strong,
+    .notice-item strong,
+    .notice-card h3,
+    .child-info strong,
+    .exam-info strong,
+    .duty-info strong,
+    .schedule-info strong,
+    .fee-row strong,
+    .att-row strong,
+    .item-title {
+      color: var(--text-primary) !important;
+    }
+
+    .metric-sub,
+    .panel-empty,
+    .page-header p,
+    .profile-row span,
+    .leave-info span,
+    .payroll-info span,
+    .notice-date,
+    .child-info span,
+    .exam-info span,
+    .duty-info span,
+    .schedule-info span,
+    .fee-row span,
+    .att-row span,
+    .state-card,
+    .item-message,
+    .item-time {
+      color: var(--text-secondary) !important;
+    }
+
+    .panel-link,
+    .metric-link,
+    .view-fees-btn {
+      color: var(--portal-panel-link) !important;
+    }
+
+    .schedule-item,
+    .leave-item,
+    .payroll-item,
+    .duty-item,
+    .exam-item,
+    .child-card {
+      background: var(--portal-item-bg) !important;
+    }
+
+    .metric-icon,
+    .leave-icon-wrap,
+    .payroll-icon-wrap,
+    .duty-icon-wrap,
+    .exam-icon-wrap {
+      background: var(--portal-metric-icon-bg) !important;
+    }
+
+    .quick-card:hover {
+      background: var(--bg-card-hover) !important;
+      border-color: var(--border-strong) !important;
+    }
+  }
+
+  .page-header h1,
+  .page-header p {
+    color: var(--text-primary);
+  }
+
+  .page-header p {
+    color: var(--text-secondary);
+  }
+}
+
+// Login page
+.login-container {
+  background: var(--bg-page) !important;
+}
+
+.login-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md) !important;
+  color: var(--text-dark);
+}
+
+.login-card h2 {
+  color: var(--text-primary);
+}
+
+.login-card label {
+  color: var(--text-label);
+}
+
+.login-card input {
+  background: var(--bg-input) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-dark) !important;
+}
+
+.login-card button[type="submit"] {
+  background: var(--primary-color) !important;
+  color: var(--text-on-primary) !important;
+}
+
+.login-card button[type="submit"]:disabled {
+  opacity: 0.6;
+}
+
+.login-theme-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.login-theme-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-strong);
+}
+
+// Exam workspace dark overrides
+[data-theme="dark"] .exam-marks-workspace {
+  --ems-bg: #0f172a;
+  --ems-surface: #1e293b;
+  --ems-surface-2: #283548;
+  --ems-border: #334155;
+  --ems-text: #e2e8f0;
+  --ems-text-muted: #94a3b8;
+  --ems-text-heading: #f1f5f9;
+}

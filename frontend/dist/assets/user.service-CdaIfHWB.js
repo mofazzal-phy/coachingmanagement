@@ -1,0 +1,1 @@
+import{P as r}from"./index-Dlxl2tZU.js";const u={list(e={}){return r.get("/users",{params:e})},get(e){return r.get(`/users/${e}`)},create(e){return r.post("/users",e)},update(e,t){return r.put(`/users/${e}`,t)},delete(e){return r.delete(`/users/${e}`)},byRole(e,t={}){return r.get(`/users/role/${e}`,{params:t})},stats(){return r.get("/users/stats")}};export{u};

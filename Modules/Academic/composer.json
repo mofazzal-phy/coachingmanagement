@@ -1,0 +1,28 @@
+{
+    "name": "coaching/academic",
+    "description": "",
+    "authors": [
+        {
+            "name": "User",
+            "email": "user@example.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Academic\\": "app/",
+            "Modules\\Academic\\Database\\Factories\\": "database/factories/",
+            "Modules\\Academic\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Academic\\Tests\\": "tests/"
+        }
+    }
+}

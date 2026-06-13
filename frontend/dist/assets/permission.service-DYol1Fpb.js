@@ -1,0 +1,1 @@
+import{P as s}from"./index-Dlxl2tZU.js";const i={list(){return s.get("/permissions")},create(e){return s.post("/permissions",e)},delete(e){return s.delete(`/permissions/${e}`)},syncRolePermissions(e){return s.post("/permissions/sync-role",e)}};export{i as p};

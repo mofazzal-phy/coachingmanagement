@@ -1,0 +1,1 @@
+<template><div class="page-container"><div class="page-header"><h1>Reports</h1></div><div class="page-body"><p class="text-muted">Reports - Coming soon</p></div></div></template><script setup></script>

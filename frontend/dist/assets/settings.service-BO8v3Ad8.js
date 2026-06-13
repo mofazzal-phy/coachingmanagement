@@ -1,0 +1,1 @@
+import{P as e}from"./index-Dlxl2tZU.js";const r={list(t={}){return e.get("/settings",{params:t})},get(t){return e.get(`/settings/${t}`)},update(t){return e.put("/settings",{settings:t})},getGradingRules(){return e.get("/settings/grading-rules")},updateGradingRules(t){return e.put("/settings/grading-rules",{rules:t})}};export{r as s};

@@ -1,0 +1,639 @@
+// Dark mode overrides for ALL pages inside the main content area.
+// Uses .main-content ancestor + !important to beat Vue scoped light-theme styles.
+
+[data-theme="dark"] .main-content {
+  color: var(--text-dark);
+
+  // ---- Headings & text ----
+  h1, h2, h3, h4, h5, h6,
+  .page-header h1,
+  .header-left h1,
+  .section-title,
+  .panel-header h3,
+  .page-title,
+  .card-title,
+  .detail-title,
+  .wizard-title {
+    color: var(--text-primary) !important;
+  }
+
+  p,
+  .page-header p,
+  .panel-empty,
+  .panel-count,
+  .date-cell,
+  .user-id,
+  .metric-label,
+  .metric-sub,
+  .breakdown-row,
+  .fee-row,
+  .page-info,
+  .meta-text,
+  .sub-text,
+  .help-text,
+  .description,
+  .caption,
+  .label-text {
+    color: var(--text-secondary) !important;
+  }
+
+  strong,
+  .metric-value,
+  .user-name,
+  .breakdown-row strong,
+  .ring-center strong,
+  .fee-row strong,
+  .enrollment-course,
+  .stat-value,
+  .stat-number,
+  .count-value,
+  .amount,
+  .total-amount,
+  .cell-primary,
+  .primary-text,
+  td strong,
+  .notice-item strong,
+  .schedule-info strong,
+  .detail-value {
+    color: var(--text-primary) !important;
+  }
+
+  a:not(.btn):not(.btn-primary):not(.quick-card):not(.panel-link):not(.metric-link) {
+    color: var(--text-link);
+  }
+
+  // ---- Surfaces / cards ----
+  .table-container,
+  .form-card,
+  .empty-state,
+  .loading-state,
+  .error-state,
+  .panel,
+  .metric-card,
+  .quick-card,
+  .state-card,
+  .enrollment-card,
+  .notice-item,
+  .notice-card,
+  .child-card,
+  .schedule-item,
+  .duty-item,
+  .exam-item,
+  .leave-item,
+  .payroll-item,
+  .info-card,
+  .detail-card,
+  .stats-card,
+  .summary-card,
+  .filter-card,
+  .content-card,
+  .settings-card,
+  .card,
+  .card-body,
+  .wizard-panel,
+  .step-content,
+  .tab-content,
+  .report-card,
+  .kpi-card,
+  .dashboard-card,
+  .fee-card,
+  .attendance-card,
+  .device-card,
+  .method-card,
+  .preview-card,
+  .result-card,
+  .question-card,
+  .batch-card,
+  .course-card,
+  .enrollment-item,
+  .list-item,
+  .timeline-item,
+  .stat-card,
+  .attendance-page,
+  .today-section,
+  .subject-summary-section,
+  .subject-summary-card,
+  .teacher-class-section,
+  .class-stat,
+  .attendance-method-card,
+  .kpi-card,
+  .session-info-card,
+  .simulator-card,
+  .activity-card,
+  .dashboard-panel,
+  .admin-stat-card,
+  .course-select-card,
+  .batch-select-card,
+  .routine-cell,
+  .grid-cell,
+  .slot-card,
+  .mark-entry-grid,
+  .workflow-panel,
+  .dash-panel,
+  .admin-dashboard .action-tile,
+  .admin-dashboard .module-card,
+  .chart-card {
+    background: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-dark);
+    box-shadow: var(--shadow-sm) !important;
+  }
+
+  .stat-label,
+  .stat-sub,
+  .class-stat-label,
+  .subject-meta,
+  .text-muted,
+  .period-hint,
+  .last-updated {
+    color: var(--text-secondary) !important;
+  }
+
+  .stat-value,
+  .class-stat-value,
+  .subject-pct,
+  .today-section h3,
+  .today-section h4,
+  .subject-summary-section h3,
+  .teacher-class-section h3,
+  .teacher-class-section h4,
+  .attendance-page .page-header h1,
+  .admin-dashboard .quick-section h2,
+  .admin-dashboard .mod-info strong,
+  .admin-dashboard .feed-body strong,
+  .admin-dashboard .occ-meta strong,
+  .admin-dashboard .panel-title,
+  .stat-value,
+  .legend-value-percent,
+  .doughnut-total {
+    color: var(--text-primary) !important;
+  }
+
+  .admin-dashboard .action-label,
+  .admin-dashboard .mod-info span,
+  .admin-dashboard .feed-body small,
+  .admin-dashboard .occ-meta small,
+  .admin-dashboard .occ-pct,
+  .admin-dashboard .mode-val,
+  .admin-dashboard .inline-empty,
+  .bar-label,
+  .bar-value,
+  .stat-label,
+  .stat-sub,
+  .panel-subtitle,
+  .legend-label {
+    color: var(--text-secondary) !important;
+  }
+
+  .class-stat.completed { background: #064e3b !important; }
+  .class-stat.completed .class-stat-value { color: #6ee7b7 !important; }
+  .class-stat.pending { background: #1e3a5f !important; }
+  .class-stat.pending .class-stat-value { color: #93c5fd !important; }
+  .class-stat.no-show { background: #450a0a !important; }
+  .class-stat.no-show .class-stat-value { color: #fca5a5 !important; }
+  .class-stat.cancelled { background: var(--bg-accent) !important; }
+  .class-stat.cancelled .class-stat-value { color: var(--text-muted) !important; }
+
+  .quick-card:hover,
+  .metric-card:hover,
+  .enrollment-card:hover {
+    background: var(--bg-card-hover) !important;
+    border-color: var(--border-strong) !important;
+  }
+
+  .panel-count {
+    background: var(--bg-accent) !important;
+    color: var(--text-muted) !important;
+  }
+
+  // ---- Tables ----
+  .data-table th {
+    background: var(--bg-header-row) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .data-table td {
+    color: var(--text-dark) !important;
+    border-color: var(--border-color) !important;
+    background: var(--bg-card) !important;
+  }
+
+  .data-table tr:hover td {
+    background: var(--bg-card-hover) !important;
+  }
+
+  .pagination {
+    background: var(--bg-accent) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  // ---- Form controls ----
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+  select,
+  textarea,
+  .form-control,
+  .search-box input,
+  .filter-select,
+  .filter-input,
+  .p-inputtext {
+    background: var(--bg-input) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-muted) !important;
+  }
+
+  label,
+  .form-group label {
+    color: var(--text-label) !important;
+  }
+
+  // ---- Buttons ----
+  .btn-outline {
+    background: var(--bg-card) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .btn-outline:hover {
+    background: var(--bg-card-hover) !important;
+    border-color: var(--border-strong) !important;
+    color: var(--text-primary) !important;
+  }
+
+  .btn-icon:hover {
+    background: var(--bg-card-hover) !important;
+  }
+
+  // ---- Badges ----
+  .badge-count {
+    background: #312e81 !important;
+    color: #c7d2fe !important;
+  }
+
+  .role-badge {
+    background: var(--bg-accent) !important;
+    color: var(--text-secondary) !important;
+  }
+
+  .role-badge.role-admin { background: #312e81 !important; color: #c7d2fe !important; }
+  .role-badge.role-teacher { background: #1e3a5f !important; color: #93c5fd !important; }
+  .role-badge.role-student { background: #064e3b !important; color: #6ee7b7 !important; }
+  .role-badge.role-employee { background: #78350f !important; color: #fcd34d !important; }
+  .role-badge.role-guardian { background: #164e63 !important; color: #67e8f9 !important; }
+
+  .status-badge.active { background: #064e3b !important; color: #6ee7b7 !important; }
+  .status-badge.inactive { background: #450a0a !important; color: #fca5a5 !important; }
+  .status-badge.resigned { background: #78350f !important; color: #fcd34d !important; }
+  .status-badge.terminated { background: #450a0a !important; color: #fca5a5 !important; }
+
+  .enrollment-status {
+    background: #064e3b !important;
+    color: #6ee7b7 !important;
+  }
+
+  // ---- Attendance ring / breakdown ----
+  .ring-bg {
+    stroke: var(--border-color) !important;
+  }
+
+  .ring-center span {
+    color: var(--text-muted) !important;
+  }
+
+  .dot.present { background: #22c55e !important; }
+  .dot.absent { background: #ef4444 !important; }
+  .dot.late { background: #f59e0b !important; }
+  .dot.leave { background: #3b82f6 !important; }
+
+  // ---- Quick action icons (fix faded icons in dark mode) ----
+  .quick-icon {
+    background: color-mix(in srgb, var(--accent, #4f46e5) 30%, var(--bg-elevated)) !important;
+  }
+
+  .metric-icon {
+    filter: none;
+  }
+
+  // ---- Modals (page-scoped duplicates) ----
+  .modal-dialog {
+    background: var(--bg-card) !important;
+    color: var(--text-dark) !important;
+  }
+
+  .modal-header {
+    border-color: var(--border-color) !important;
+  }
+
+  .modal-header h3 {
+    color: var(--text-primary) !important;
+  }
+
+  .modal-body p {
+    color: var(--text-secondary) !important;
+  }
+
+  .modal-footer {
+    border-color: var(--border-color) !important;
+  }
+
+  .modal-close {
+    color: var(--text-muted) !important;
+  }
+
+  .modal-close:hover {
+    color: var(--text-primary) !important;
+  }
+
+  .spinner {
+    border-color: var(--border-color) !important;
+    border-top-color: var(--primary-color) !important;
+  }
+
+  .error-state {
+    background: var(--alert-danger-bg) !important;
+    color: var(--danger-color) !important;
+  }
+
+  .loading-state,
+  .empty-state {
+    color: var(--text-secondary) !important;
+  }
+
+  .empty-state h3 {
+    color: var(--text-primary) !important;
+  }
+
+  // ---- PrimeVue components ----
+  .p-datatable,
+  .p-datatable .p-datatable-header,
+  .p-datatable .p-datatable-footer,
+  .p-datatable .p-datatable-tbody > tr,
+  .p-datatable .p-datatable-tbody > tr > td,
+  .p-datatable .p-datatable-thead > tr > th,
+  .p-card,
+  .p-card .p-card-body,
+  .p-card .p-card-title,
+  .p-card .p-card-content,
+  .p-panel,
+  .p-panel .p-panel-header,
+  .p-panel .p-panel-content,
+  .p-tabview .p-tabview-panels,
+  .p-dialog,
+  .p-dialog .p-dialog-header,
+  .p-dialog .p-dialog-content,
+  .p-dialog .p-dialog-footer,
+  .p-sidebar,
+  .p-sidebar .p-sidebar-content,
+  .p-dropdown-panel,
+  .p-multiselect-panel,
+  .p-autocomplete-panel,
+  .p-overlaypanel,
+  .p-menu,
+  .p-tieredmenu,
+  .p-accordion .p-accordion-content,
+  .p-fieldset,
+  .p-fieldset .p-fieldset-legend,
+  .p-toolbar,
+  .p-paginator {
+    background: var(--bg-card) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .p-datatable .p-datatable-thead > tr > th {
+    background: var(--bg-header-row) !important;
+    color: var(--text-muted) !important;
+  }
+
+  .p-datatable .p-datatable-tbody > tr:hover {
+    background: var(--bg-card-hover) !important;
+  }
+
+  .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+    color: var(--text-secondary) !important;
+  }
+
+  .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    color: var(--text-primary) !important;
+  }
+
+  // ---- Dashboard & CMS pages ----
+  .dashboard-page,
+  .page-container {
+    color: var(--text-dark);
+  }
+
+  .dashboard-page .section-block,
+  .dashboard-page .action-tile,
+  .dashboard-page .exam-row strong,
+  .summary-card {
+    background: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-dark);
+  }
+
+  .summary-card:hover {
+    background: var(--bg-card-hover) !important;
+  }
+
+  .summary-body strong { color: var(--text-primary) !important; }
+  .summary-meta { color: var(--text-muted) !important; }
+
+  .page-header h1,
+  .header-left h1,
+  .card-title,
+  .modal-header h3 {
+    color: var(--text-primary) !important;
+  }
+
+  .data-table th {
+    background: var(--bg-header-row) !important;
+    color: var(--text-muted) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .data-table tbody tr:hover {
+    background: var(--bg-card-hover) !important;
+  }
+
+  .table-container,
+  .content-card,
+  .loading-state,
+  .error-state,
+  .empty-state,
+  .modal-dialog,
+  .modal-header,
+  .modal-footer,
+  .modal-body,
+  .filter-bar {
+    background: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .info-label,
+  .card-info-grid .info-label {
+    color: var(--text-muted) !important;
+  }
+
+  .info-value,
+  .card-title {
+    color: var(--text-primary) !important;
+  }
+
+  .status-pill.draft,
+  .status-pill.inactive,
+  .approval-pill.none {
+    background: var(--bg-accent) !important;
+    color: var(--text-muted) !important;
+  }
+
+  .status-pill.published,
+  .approval-pill.approved {
+    background: #064e3b !important;
+    color: #6ee7b7 !important;
+  }
+
+  .approval-pill.pending_review {
+    background: #78350f !important;
+    color: #fcd34d !important;
+  }
+
+  .approval-pill.rejected {
+    background: #450a0a !important;
+    color: #fca5a5 !important;
+  }
+
+  .featured-tag {
+    background: #78350f !important;
+    color: #fcd34d !important;
+  }
+
+  .alert-danger {
+    background: var(--alert-danger-bg) !important;
+    color: var(--danger-color) !important;
+  }
+
+  .spinner {
+    border-color: var(--border-color) !important;
+    border-top-color: var(--primary-color) !important;
+  }
+
+  .modern-chart .chart-empty {
+    color: var(--text-muted) !important;
+  }
+
+  .analytics-grid .stat-card,
+  .analytics-grid .metric-tile,
+  .cms-analytics-page .filter-card {
+    background: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  .teacher-dashboard,
+  .student-dashboard,
+  .employee-dashboard,
+  .guardian-dashboard {
+    .summary-card,
+    .dash-panel {
+      background: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+    }
+  }
+
+  .attendance-erp {
+    .erp-topbar,
+    .tools-strip,
+    .control-panel,
+    .table-card,
+    .sidebar-card,
+    .table-footer-row,
+    .bulk-dropdown-menu,
+    .pag-nav-btn {
+      background: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+      color: var(--text-dark);
+    }
+
+    .attendance-table th {
+      background: var(--bg-header-row) !important;
+      color: var(--text-muted) !important;
+    }
+
+    .attendance-table td {
+      background: var(--bg-card) !important;
+      color: var(--text-secondary) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    .attendance-table tr.selected td {
+      background: var(--bg-card-hover) !important;
+    }
+
+    .student-name,
+    .tools-strip-heading,
+    .sidebar-card-title,
+    .info-value-cell {
+      color: var(--text-primary) !important;
+    }
+
+    .control-select,
+    .control-date,
+    .control-search,
+    .sim-select,
+    .time-input-borderless,
+    .remarks-input-borderless {
+      background-color: var(--bg-input) !important;
+      color: var(--text-dark) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    .mode-tab {
+      background: var(--bg-accent) !important;
+      color: var(--text-muted) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    .session-mode-bar,
+    .daily-schedule-hint {
+      background: var(--bg-accent) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    .stat-chart-card {
+      background: var(--bg-card) !important;
+      border-color: var(--border-color) !important;
+    }
+  }
+}
+
+// Portal dashboard roots may sit inside main-content — reinforce text fixes
+[data-theme="dark"] .main-content {
+  .student-dashboard,
+  .teacher-dashboard,
+  .guardian-dashboard,
+  .employee-dashboard,
+  .admin-dashboard {
+    .breakdown-row strong,
+    .ring-center strong,
+    .enrollment-course,
+    .metric-value,
+    .section-title,
+    .panel-header h3,
+    .quick-label {
+      color: var(--text-primary) !important;
+    }
+
+    .breakdown-row,
+    .metric-label,
+    .metric-sub,
+    .panel-empty,
+    .enrollment-meta {
+      color: var(--text-secondary) !important;
+    }
+  }
+}

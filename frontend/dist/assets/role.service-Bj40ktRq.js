@@ -1,0 +1,1 @@
+import{P as r}from"./index-Dlxl2tZU.js";const o={list(){return r.get("/roles")},get(e){return r.get(`/roles/${e}`)},create(e){return r.post("/roles",e)},update(e,t){return r.put(`/roles/${e}`,t)},delete(e){return r.delete(`/roles/${e}`)},assignToUser(e){return r.post("/roles/assign",e)}};export{o as r};
