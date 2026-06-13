@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="wizard-header">
       <h1>📝 New Enrollment</h1>
-      <p class="text-muted">Smart enrollment wizard — complete in 5 steps</p>
+      <p class="text-muted">Smart enrollment — complete in 5 steps</p>
     </div>
 
     <!-- Progress Bar -->
